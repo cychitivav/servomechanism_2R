@@ -17,14 +17,14 @@ function varargout = forwardKinematics(varargin)
 %   See also inverseKinematics.
 
 %% Assumption
-    L1 = 30;
-    L2 = 20;
+    L1 = 50;
+    L2 = 50;
 %% Inputs
     if nargin == 1
         theta = varargin{1};
     elseif nargin == 2
-        theta(1) = varargin{1};
-        theta(2) = varargin{2};
+        theta(:,1) = varargin{1};
+        theta(:,2) = varargin{2};
     elseif nargin == 3
         L1 = varargin{2};
         L2 = varargin{3};
@@ -35,11 +35,11 @@ function varargout = forwardKinematics(varargin)
         error('Bad number of input arguments.')
     end
 %% Computations
-    x = L2*cos(theta(1) + theta(2)) + L1*cos(theta(1));
-    y = L2*sin(theta(1) + theta(2)) + L1*sin(theta(1));
+    x = L2*cos(theta(:,1) + theta(:,2)) + L1*cos(theta(:,1));
+    y = L2*sin(theta(:,1) + theta(:,2)) + L1*sin(theta(:,1));
 %% Outputs
     if nargout == 1 || nargout == 0
-        varargout{1} = [x,y]';
+        varargout{1} = [x y];
     elseif nargout == 2
         varargout{1} = x;
         varargout{2} = y;

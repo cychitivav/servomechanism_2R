@@ -15,12 +15,12 @@ function varargout = inverseKinematics(varargin)
 %   See also directKinematics.
 
 %% Assumption
-    L1 = 30;
-    L2 = 20;
+    L1 = 50;
+    L2 = 50;
 %% Inputs
     if nargin == 1
-        x = varargin{1}(1);
-        y = varargin{1}(2);
+        x = varargin{1}(:,1);
+        y = varargin{1}(:,2);
     elseif nargin == 2
         x = varargin{1};
         y = varargin{2};
@@ -34,11 +34,11 @@ function varargout = inverseKinematics(varargin)
         error('Bad number of input arguments.')
     end 
  %% Computations
-    L = sqrt(x^2+y^2);
+    L = sqrt(x.^2+y.^2);
     alpha = atan2(y,x);
 
-    theta = [alpha-acos(-(L2^2-L^2-L1^2)/(2*L*L1)), ... 
-                   acos((L^2-L1^2-L2^2)/(2*L1*L2))];
+    theta = [alpha+acos(-(L2^2-L.^2-L1^2)./(2*L*L1)), ... 
+                   acos((L.^2-L1^2-L2^2)/(2*L1*L2))];
 %% Outputs
     if nargout == 1 || nargout == 0
         varargout{1} = theta;
