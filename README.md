@@ -9,16 +9,16 @@
 In this repository is the development and execution of an academic project for the servomechanisms class, which consists of the design of a 2R mechanism with its controller to follow a stylized 4-leaf clover trajectory.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/30636259/162853501-dc5d82a1-a1a8-400b-a79d-732aa4fc7b76.png#gh-light-mode-only" width="50%">
-    <img src="https://user-images.githubusercontent.com/30636259/162853672-40be02ba-91de-41b1-a5ad-18836164fe8d.png#gh-dark-mode-only" width="50%">
+    <img src="https://user-images.githubusercontent.com/30636259/162853501-dc5d82a1-a1a8-400b-a79d-732aa4fc7b76.png#gh-light-mode-only" width="500px">
+    <img src="https://user-images.githubusercontent.com/30636259/162853672-40be02ba-91de-41b1-a5ad-18836164fe8d.png#gh-dark-mode-only" width="500px">
 </p>
 
 ## Kinematics
 
 ### Forward kinematics
 
-<img align="left" src="https://user-images.githubusercontent.com/30636259/162853342-b16c023d-a1df-4db6-a581-ba26dc9f7edf.png#gh-light-mode-only" width="50%">
-<img align="left" src="https://user-images.githubusercontent.com/30636259/162854336-6a8ddec8-bac3-440e-9ae9-44d7c8041ed7.png#gh-dark-mode-only" width="50%">
+<img align="left" src="https://user-images.githubusercontent.com/30636259/162853342-b16c023d-a1df-4db6-a581-ba26dc9f7edf.png#gh-light-mode-only" width="500px">
+<img align="left" src="https://user-images.githubusercontent.com/30636259/162854336-6a8ddec8-bac3-440e-9ae9-44d7c8041ed7.png#gh-dark-mode-only" width="500px">
 
 <!-- $$
 \large
@@ -65,8 +65,8 @@ $$ -->
 
 ### Inverse kinematics
 
-<img align="left" src="https://user-images.githubusercontent.com/30636259/162852730-4edd24f3-1cd4-49e1-a7b3-b6c2f1de69ab.png#gh-light-mode-only" width="40%">
-<img align="left" src="https://user-images.githubusercontent.com/30636259/162852792-12c7eb79-8c1f-40f1-bb90-877961caac28.png#gh-dark-mode-only" width="40%">
+<img align="left" src="https://user-images.githubusercontent.com/30636259/162852730-4edd24f3-1cd4-49e1-a7b3-b6c2f1de69ab.png#gh-light-mode-only" width="400px">
+<img align="left" src="https://user-images.githubusercontent.com/30636259/162852792-12c7eb79-8c1f-40f1-bb90-877961caac28.png#gh-dark-mode-only" width="400px">
 
 <!-- $$
 \large
