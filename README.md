@@ -1,24 +1,29 @@
 # Academic project Servomechanisms
-
-<!-- Code for equations in readme(dark and light theme) -->
-<!-- <div align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=#gh-light-mode-only">
-    <img src="https://render.githubusercontent.com/render/math?math=\color{white}#gh-dark-mode-only">
-</div> -->
-
-In this repository is the development and execution of an academic project for the servomechanisms class, which consists of the design of a 2R mechanism with its controller to follow a stylized 4-leaf clover trajectory.
+This repository contains the development and execution of an academic project for the servomechanisms class, which consists of the design and validation in simulation of a 2R mechanism controlled to follow a 4-leaf stylized cloverleaf trajectory.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/30636259/162853501-dc5d82a1-a1a8-400b-a79d-732aa4fc7b76.png#gh-light-mode-only" width="500px">
-    <img src="https://user-images.githubusercontent.com/30636259/162853672-40be02ba-91de-41b1-a5ad-18836164fe8d.png#gh-dark-mode-only" width="500px">
+    <img src="https://user-images.githubusercontent.com/30636259/162853501-dc5d82a1-a1a8-400b-a79d-732aa4fc7b76.png#gh-light-mode-only" width="450px">
+    <img src="https://user-images.githubusercontent.com/30636259/162853672-40be02ba-91de-41b1-a5ad-18836164fe8d.png#gh-dark-mode-only" width="450px">
 </p>
 
-## Kinematics
+### Requirements
+* One fixed base and two movable links. The movement must be in a vertical plane.
+* Two motorized joints, both of Rotational (R) type.
+* The test trajectory is measured at the distal end of the second link. The trajectory has the shape of a "four-leaf clover with stylized outline", as shown in the previous figure. For the case $L_{min}=15\ cm$.
+* The desired trajectory and the path should be plotted from a computer, preferably in real time and should allow for scaling up to a factor of $1.3$ and rotation of $\pm90\degree$.
+* At the start of the movement the mechanism (retracted) should be at most half the height of the "Stylized Clover" and to the left of the square in which it is circumscribed.
+* The speed with which the trajectory is traversed is assumed to be constant. It is considered to be between $1\ cm/s$ and $10\ cm/s$.
+* After an approach stage, the servomechanism should automatically follow the motion profiles by traversing the stylized clover for several cycles (up to 10) in a fast and precise way.
 
-### Forward kinematics
+## Models
 
-<img align="left" src="https://user-images.githubusercontent.com/30636259/169440221-a951fa06-f200-44b3-a0d2-cb431e0f23e0.png#gh-light-mode-only" width="500px">
-<img align="left" src="https://user-images.githubusercontent.com/30636259/169439978-71cb8980-b337-49ab-bfa0-746d3433f0e3.png#gh-dark-mode-only" width="500px">
+## Calculations
+
+### Kinematics
+#### Forward kinematics
+
+<img align="left" src="https://user-images.githubusercontent.com/30636259/169440221-a951fa06-f200-44b3-a0d2-cb431e0f23e0.png#gh-light-mode-only" width="400px">
+<img align="left" src="https://user-images.githubusercontent.com/30636259/169439978-71cb8980-b337-49ab-bfa0-746d3433f0e3.png#gh-dark-mode-only" width="400px">
 
 $$
 \begin{gather*}
@@ -47,7 +52,7 @@ $$
 
 > The development of these equations is in the [forward kinematics function](forwardKinematics.m).
 
-### Inverse kinematics
+#### Inverse kinematics
 
 <img align="left" src="https://user-images.githubusercontent.com/30636259/162852730-4edd24f3-1cd4-49e1-a7b3-b6c2f1de69ab.png#gh-light-mode-only" width="400px">
 <img align="left" src="https://user-images.githubusercontent.com/30636259/162852792-12c7eb79-8c1f-40f1-bb90-877961caac28.png#gh-dark-mode-only" width="400px">
@@ -79,3 +84,17 @@ $$
 <br clear="all">
 
 > The development of these equations is in the [inverse kinematics function](forwardKinematics.m).
+
+
+## Simulations
+
+
+## Acknowledgements
+* [Prof. Victor Hugo Grisales](mailto:vhgrisalesp@unal.edu.co)
+* **Contributors**:
+    * [Juan Sebastian Rangel](mailto:jrangel@unal.edu.co)
+    * [Ivanna Medina](mailto:imedinac@unal.edu.co)
+    * [Camilo Upegui]()
+    * [Daniel Cruz]()
+
+## References

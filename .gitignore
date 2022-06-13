@@ -1,8 +1,9 @@
 # MATLAB files
 *.asv
 .MATLABDriveTag
+
 # MATLAB publish
 /html
 
-# vscode trash
-.vscode
+# VSCode trash
+*.vscode

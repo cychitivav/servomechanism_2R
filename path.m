@@ -1,6 +1,6 @@
 function [x y] = path(s)
     a = 15;
-    b = 7.9;
+    b = 5;
     beta = rand(1)*4*pi;
     k = 4;
     
