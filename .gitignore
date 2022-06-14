@@ -1,6 +1,9 @@
 # MATLAB files
 *.asv
 .MATLABDriveTag
+*.autosave
+*.slxc
+*.slprj
 
 # MATLAB publish
 /html
