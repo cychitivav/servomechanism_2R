@@ -16,6 +16,79 @@ This repository contains the development and execution of an academic project fo
 * After an approach stage, the servomechanism should automatically follow the motion profiles by traversing the stylized clover for several cycles (up to 10) in a fast and precise way.
 
 ## Models
+### Motor DC model
+Considering the following dc motor model with fixed magnetic field (coil generated or with permanent magnet).
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/30636259/173662956-409c41c4-61ee-4e02-92d1-ba1f6c51ae15.png#gh-light-mode-only" width="450px">
+    <img src="https://user-images.githubusercontent.com/30636259/173663592-17c5418c-9343-4560-9dd9-1bbcb1713482.png#gh-dark-mode-only" width="450px">
+</p>
+
+This model is derived from physical principles
+
+1. Newton's second law
+
+$$
+\begin{gather*}
+    J\ddot{\theta}=-B\dot{\theta}+\tau
+\end{gather*}
+$$
+
+2. 's law ($\phi=kte$)
+
+$$
+\begin{align*}
+\tau\propto \phi k i_a\\
+\tau=k_Ti_a
+\end{align*}
+$$
+
+3. Kirchhoff's current law
+
+$$
+\begin{gather*}
+    v_a=v_{R_a}+v_{L_a} +v_b\\
+    v_b=i_aR_a+L_a\frac{d i_a}{dt}+v_b
+\end{gather*}
+$$
+
+4. 's law
+
+$$
+\begin{gather*}
+    v_b=k_b\dot{\theta}
+\end{gather*}
+$$
+
+Unifying these equations, the following block diagram can be obtained
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/30636259/173683483-58f27318-6cc3-46f2-b923-0b03c311c33f.png#gh-light-mode-only" width="650px">
+    <img src="https://user-images.githubusercontent.com/30636259/173684281-2898111d-b016-4e8c-8e96-203d026c09da.png#gh-dark-mode-only" width="650px">
+</p>
+
+$$
+\begin{gather*}	
+    \frac{\dot{\Theta}(s)}{V_a(s)}=\frac{k_T}{JL_as^2+(JR_a+BL_a)s+(BR_a+k_Tk_b)}
+\end{gather*}
+$$
+
+Considering the following model of a DC motor with fixed magnetic field (coil-generated or permanent magnet).
+
+This model will be used for the mechanism motors, which will move each of the rotational joints to reach a required position.
+
+##### Inertia
+The inertia of second block is the motor inertia plus the inertia of the mechanism. To calculate the total inertia, we need to know the inertia of the motor (provided by manufacturer) and the inertia of the links.
+
+#### Simulink model
+The motors can be modeled with the Simulink `transfer fcn` block and the function described above, or another option is to use Simscape Driveline with a controlled dc source voltage and `DC motor` block.
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/30636259/173686218-ad43c320-ca9e-4997-8aea-0f5dc6a56c1c.png" width="650px" />
+</p>
+
+
+
 
 ## Calculations
 
@@ -82,6 +155,8 @@ $$
 $$
 
 <br clear="all">
+
+For this project only the elbow down configuration is considered, but an elbow up solution is not ruled out.
 
 > The development of these equations is in the [inverse kinematics function](forwardKinematics.m).
 
