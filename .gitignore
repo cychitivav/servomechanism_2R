@@ -3,7 +3,7 @@
 .MATLABDriveTag
 *.autosave
 *.slxc
-*.slprj
+*slprj
 
 # MATLAB publish
 /html

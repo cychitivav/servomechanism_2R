@@ -15,8 +15,8 @@ function varargout = inverseKinematics(varargin)
 %   See also directKinematics.
 
 %% Assumption
-    L1 = 50;
-    L2 = 50;
+    L1 = 0.3;
+    L2 = 0.2;
 %% Inputs
     if nargin == 1
         x = varargin{1}(:,1);
@@ -38,7 +38,7 @@ function varargout = inverseKinematics(varargin)
     alpha = atan2(y,x);
 
     theta = [alpha+acos(-(L2^2-L.^2-L1^2)./(2*L*L1)), ... 
-                   acos((L.^2-L1^2-L2^2)/(2*L1*L2))];
+                  -acos((L.^2-L1^2-L2^2)/(2*L1*L2))];
 %% Outputs
     if nargout == 1 || nargout == 0
         varargout{1} = theta;

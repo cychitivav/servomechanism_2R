@@ -17,8 +17,8 @@ function varargout = forwardKinematics(varargin)
 %   See also inverseKinematics.
 
 %% Assumption
-    L1 = 50;
-    L2 = 50;
+    L1 = 0.3;
+    L2 = 0.2;
 %% Inputs
     if nargin == 1
         theta = varargin{1};
