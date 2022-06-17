@@ -1,6 +1,6 @@
 clc, clear, close all
 %% This is an example
-L1 = 50;
+L1 = 0.3;
 s=0:0.001:1;
 [x,y] = path(s);
 q = inverseKinematics(x,y);
@@ -11,7 +11,7 @@ vy = gradient(y);
 for i=1:10:length(q)    
     xm = L1*cos(q(i,1));
     ym = L1*sin(q(i,1));
-    
+    te
     figure(1)
     subplot(2,1,1)
     plot([0 xm],[0 ym])
@@ -22,8 +22,8 @@ for i=1:10:length(q)
     plot([xm x(i)],[ym y(i)])
 
     plot([0 x(i)],[0 y(i)],':')
-    xlim([-20 80])
-    ylim([-5 80])
+    xlim([-0.20 0.80])
+    ylim([-0.05 0.80])
     hold off
 
     subplot(2,2,3)

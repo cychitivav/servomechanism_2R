@@ -67,6 +67,11 @@ Unifying these equations, the following block diagram can be obtained
     <img src="https://user-images.githubusercontent.com/30636259/173684281-2898111d-b016-4e8c-8e96-203d026c09da.png#gh-dark-mode-only" width="650px">
 </p>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <img alt="" src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png" width="300px">
+</picture>
+
 $$
 \begin{gather*}	
     \frac{\dot{\Theta}(s)}{V_a(s)}=\frac{k_T}{JL_as^2+(JR_a+BL_a)s+(BR_a+k_Tk_b)}
