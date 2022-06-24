@@ -12,7 +12,7 @@ This repository contains the development and execution of an academic project fo
 * The test trajectory is measured at the distal end of the second link. The trajectory has the shape of a "four-leaf clover with stylized outline", as shown in the previous figure. For the case $L_{min}=15\ cm$.
 * The desired trajectory and the path should be plotted from a computer, preferably in real time and should allow for scaling up to a factor of $1.3$ and rotation of $\pm90\degree$.
 * At the start of the movement the mechanism (retracted) should be at most half the height of the "Stylized Clover" and to the left of the square in which it is circumscribed.
-* The speed with which the trajectory is traversed is assumed to be constant. It is considered to be between $1\ cm/s$ and $10\ cm/s$.
+* The speed with which the trajectory is traversed is assumed to be constant. It is considered to be between $1\frac{cm}{s}$ and $10\frac{cm}{s}$.
 * After an approach stage, the servomechanism should automatically follow the motion profiles by traversing the stylized clover for several cycles (up to 10) in a fast and precise way.
 
 ## Models
@@ -62,15 +62,11 @@ $$
 
 Unifying these equations, the following block diagram can be obtained
 
-<p align="center">
+<p align="center" id="wow">
     <img src="https://user-images.githubusercontent.com/30636259/173683483-58f27318-6cc3-46f2-b923-0b03c311c33f.png#gh-light-mode-only" width="650px">
     <img src="https://user-images.githubusercontent.com/30636259/173684281-2898111d-b016-4e8c-8e96-203d026c09da.png#gh-dark-mode-only" width="650px">
 </p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
-  <img alt="" src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png" width="300px">
-</picture>
 
 $$
 \begin{gather*}	
@@ -85,6 +81,8 @@ This model will be used for the mechanism motors, which will move each of the ro
 ##### Inertia
 The inertia of second block is the motor inertia plus the inertia of the mechanism. To calculate the total inertia, we need to know the inertia of the motor (provided by manufacturer) and the inertia of the links.
 
+
+
 #### Simulink model
 The motors can be modeled with the Simulink `transfer fcn` block and the function described above, or another option is to use Simscape Driveline with a controlled dc source voltage and `DC motor` block.
 
@@ -92,7 +90,7 @@ The motors can be modeled with the Simulink `transfer fcn` block and the functio
     <img src="https://user-images.githubusercontent.com/30636259/173686218-ad43c320-ca9e-4997-8aea-0f5dc6a56c1c.png" width="650px" />
 </p>
 
-
+### Mechanism model
 
 
 ## Calculations
@@ -115,14 +113,14 @@ Taking into account the above, the final end of the mechanism is in:
 $$
 \begin{gather*}
     x=x_1+x_2\\
-    \boxed{x=L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)}
+    \boxed{x=L_1\cos(\theta_1)+L_2\cos(\theta_1-\theta_2)}
 \end{gather*}
 $$
 
 $$
 \begin{gather*}
     y=y_1+y_2\\
-    \boxed{y=L_1\sin(\theta_1)+L_2\sin(\theta_1+\theta_2)}
+    \boxed{y=L_1\sin(\theta_1)+L_2\sin(\theta_1-\theta_2)}
 \end{gather*}
 $$
 
@@ -148,14 +146,14 @@ $$
 \begin{gather*}
     L^2=L_1^2+L_2^2-2L_1L_2\cos(\pi-\theta_2)\\
     L^2=L_1^2+L_2^2+2L_1L_2\cos(\theta_2)\\
-    \boxed{\theta_2=\arccos\left(\frac{L^2-L_1^2-L_2^2}{2L_1L_2}\right)}
+    \boxed{\theta_2=-\arccos{\left(\frac{L^2-L_1^2-L_2^2}{2L_1L_2}\right)}}
 \end{gather*}
 $$
 
 $$
 \begin{gather*}
     L_2^2=L_1^2+L^2-2LL_1\cos(\alpha-\theta_1)\\
-    \boxed{\theta_1=\alpha-\arccos\left(-\frac{L_2^2-L_1^2-L^2}{2L_1L}\right)}
+    \boxed{\theta_1=\alpha+\arccos\left(-\frac{L_2^2-L_1^2-L^2}{2L_1L}\right)}
 \end{gather*}
 $$
 
