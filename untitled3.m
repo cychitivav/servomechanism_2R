@@ -3,7 +3,7 @@ clc, clear, close all
 m1=1.18*30*0.8*4*0.001;%kg
 m2=1.18*20*0.8*4*0.001;%kg
 mp=0.050;%kg
-g=9.81; %m/S^2
+g=9.81; %m/s^2
 
 
 L1 = 0.3;
@@ -20,7 +20,7 @@ q0 = inverseKinematics(x0,y0);
 
 
 %% Computations
-s = 0:0.05:4*pi;
+s = 0:0.03:2*pi;
 [xf,yf] = path(s);
 xi=xf(1);
 yi=yf(1);
@@ -28,7 +28,7 @@ qf = inverseKinematics(xf,yf);
 
 
 
-qs = interp1([0,1],[q0;qf(1,:)],(0:0.01:1));
+qs = interp1([0,1],[q0;qf(1,:)],(0:0.005:1));
 q = [qs(1:end-1,:);qf];
 
 ta = 1;
@@ -77,6 +77,9 @@ tau1=(I1.*alpha1+m1*L1/2*g*cos(theta(:,1))+L1*Fy.*L1.*cos(theta(:,1))-Fx.*L1.*si
 tau2=(I2*alpha2+m2*L2/2*g*cos(theta(:,1)+theta(:,2)))*1000;
 
 [x,y] = forwardKinematics(q);
+
+vx = gradient(x/100)/dt; %cm/s
+vy = gradient(y/100)/dt;
 %% Selection
 Tau1m=max(abs(tau1));
 Tau2m=max(abs(tau2));
@@ -125,7 +128,16 @@ xlabel("Tiempo(s)")
 ylabel("torque del motor (mNm)")
 
 
-for i=1:length(q(:,1))-1
+figure(6)
+hold on
+plot(t,sqrt(vx.^2+vy.^2))
+title('Velocidad tangencial de la punta')
+grid on
+xlabel("Tiempo(s)")
+ylabel("V (cm/s)")
+
+
+for i=1%:length(q(:,1))-1
     figure(5)
     clf
     rectangle('Position',[xc-L/2 yc-L/2 L L])
@@ -151,6 +163,8 @@ for i=1:length(q(:,1))-1
     legend(strcat('t=',num2str(t(i))))
 
     pause(0.01)
+
+%     exportgraphics(gcf,'testAnimated.gif','Append',true);
 end
 
 

@@ -1,8 +1,8 @@
 function [x, y] = path(s)
-    Lmax = 0.221;
+    Lmax = 0.17*1.25;
     a = 0.09;
     b = Lmax/2-a;
-    beta = rand(1)*pi-pi/2;
+    beta = -pi/6;%rand(1)*pi-pi/2;
     k = 4;
     
     theta = reshape(s-beta,[],1);
